@@ -15,7 +15,7 @@ import java.util.Optional;
 @Profile("test")
 public class UserRepositoryTest {
 
-    private static final String EMAIL = "usuario@gmail.com";
+    private static final String EMAIL = "teste@gmail.com";
 
     @Autowired
     UserRepository repo;
@@ -49,7 +49,7 @@ public class UserRepositoryTest {
 
     @Test
     public void testFindByEmail() {
-        Optional<User> response = repo.findByEmail();
+        Optional<User> response = repo.findByEmailEquals(EMAIL);
 
         Assertions.assertTrue(response.isPresent());
         Assertions.assertEquals(response.get().getEmail(), EMAIL);
