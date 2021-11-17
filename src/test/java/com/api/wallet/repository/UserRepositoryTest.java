@@ -1,5 +1,6 @@
 package com.api.wallet.repository;
 
+import com.api.wallet.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,9 @@ public class UserRepositoryTest {
     @Test
     public void testSave() {
         User user = new User();
-        user.setName();
-        user.setEmail();
-        user.setPassword();
+        user.setName("Teste");
+        user.setEmail("teste@gmail.com");
+        user.setPassword("12345");
 
         User response = repository.save();
 
