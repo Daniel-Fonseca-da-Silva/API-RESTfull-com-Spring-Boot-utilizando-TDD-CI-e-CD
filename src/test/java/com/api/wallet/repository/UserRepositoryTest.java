@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Profile;
 public class UserRepositoryTest {
 
     @Autowired
-    userRepository repository;
+    UserRepository repository;
 
     @Test
     public void testSave() {
@@ -21,7 +21,7 @@ public class UserRepositoryTest {
         user.setEmail("teste@gmail.com");
         user.setPassword("12345");
 
-        User response = repository.save();
+        User response = repository.save(user);
 
         Assertions.assertNotNull(response);
     }
