@@ -3,21 +3,23 @@ package com.api.wallet.service;
 import com.api.wallet.entity.User;
 import com.api.wallet.repository.UserRepository;
 import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.mockito.BDDMockito;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
-@Profile("test")
-@ActiveProfiles("test")
+import static org.junit.Assert.assertTrue;
+
+@RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("test")
 public class UserServiceTest {
 
     @MockBean
@@ -33,9 +35,9 @@ public class UserServiceTest {
 
     @Test
     public void testFindByEmail() {
-        Optional<User> user = service.findByEmail("teste@gmail.com");
+        Optional<User> user = service.findByEmail("test@gmail.com");
 
-        Assertions.assertTrue(user.isPresent());
+        assertTrue(user.isPresent());
     }
 
 }

@@ -1,17 +1,20 @@
 package com.api.wallet.repository;
 
 import com.api.wallet.entity.User;
-import org.junit.After;
+import org.junit.Test;
 import org.junit.Before;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Optional;
 
+import static org.junit.Assert.*;
+
+@RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
 public class UserRepositoryTest {
@@ -45,14 +48,14 @@ public class UserRepositoryTest {
 
         User response = repo.save(user);
 
-        Assertions.assertNotNull(response);
+        assertNotNull(response);
     }
 
     @Test
     public void testFindByEmail() {
         Optional<User> response = repo.findByEmailEquals(EMAIL);
 
-        Assertions.assertTrue(response.isPresent());
-        Assertions.assertEquals(response.get().getEmail(), EMAIL);
+        assertTrue(response.isPresent());
+        assertEquals(response.get().getEmail(), EMAIL);
     }
 }
