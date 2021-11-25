@@ -1,7 +1,9 @@
 package com.api.wallet.controller;
 
+import com.api.wallet.dto.UserDTO;
 import com.api.wallet.entity.User;
 import com.api.wallet.service.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 public class UserControllerTest {
 
-    private static final String NAME = 'usuario';
-    private static final String EMAIL = 'teste@gmail.com';
-    private static final String PASSWORD = '12345';
-    private static final String URL = '/user';
+    private static final String NAME = "usuario";
+    private static final String EMAIL = "teste@gmail.com";
+    private static final String PASSWORD = "12345";
+    private static final String URL = "/user";
 
     @MockBean
     UserService service;
@@ -48,7 +50,7 @@ public class UserControllerTest {
         return user;
     }
 
-    public String getJsonPayload() {
+    public String getJsonPayload() throws JsonProcessingException {
 
         UserDTO dto = new UserDTO();
         dto.setName(NAME);

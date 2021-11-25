@@ -1,15 +1,14 @@
 package com.api.wallet.controller;
 
+import com.api.wallet.dto.UserDTO;
 import com.api.wallet.entity.User;
+import com.api.wallet.response.Response;
 import com.api.wallet.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -31,18 +30,18 @@ public class UserController {
     // Convert Entity to UserDTO
     private User convertDtoToEntity(UserDTO dto) {
         User user = new User();
-        user.setName(dto.getName);
-        user.setEmail(dto.getEmail);
-        user.setPassword(dto.getPassword);
+        user.setName(dto.getName());
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
         return user;
     }
 
     // Convert DTO to Entity
     private UserDTO convertEntityToDto(User user) {
         UserDTO dto = new UserDTO();
-        dto.setName(user.getName);
-        dto.setEmail(user.getEmail);
-        dto.setPassword(user.getPassword);
+        dto.setName(user.getName());
+        dto.setEmail(user.getEmail());
+        dto.setPassword(user.getPassword());
         return dto;
     }
 
